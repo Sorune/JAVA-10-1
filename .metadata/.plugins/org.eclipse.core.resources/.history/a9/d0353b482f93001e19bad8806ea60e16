@@ -99,11 +99,4 @@ public class Game {
 			keepGoing = in.next();
 		}
 	}
-	public static int result(int x, int y) {
-		int result = x-y;
-		if (result <0) result = 0;
-		
-		return result;
-	}
-	
 }
