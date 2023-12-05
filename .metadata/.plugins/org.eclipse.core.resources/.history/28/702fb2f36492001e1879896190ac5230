@@ -1,0 +1,32 @@
+package ch05;
+
+import java.util.*;
+
+public class TimerExam {
+	public static void main(String[] args) throws InterruptedException {
+		Date date = new Date();
+		long now = date.getTime(), time = date.getTime(),temp = 0;
+
+		while (true) {
+
+			System.out.println("--------------------------------");
+			System.out.println("1.  \t 2.   \t 3. 그만하기");
+			System.out.println("--------------------------------");
+			System.out.print("선택 : ");
+			
+			now = System.currentTimeMillis();
+			long remain = Math.floorDiv((now - time),1000);
+			
+			
+			if (remain != temp) {
+				System.out.printf("%d %d %d\n",now,time,remain);
+				System.out.println(remain);
+				System.out.println(temp);
+				temp = remain;
+			} else {}
+			
+			Thread.sleep(100);
+			
+		}
+	}
+}

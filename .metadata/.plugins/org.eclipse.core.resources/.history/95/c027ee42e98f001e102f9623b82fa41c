@@ -1,0 +1,24 @@
+package ch05;
+
+import java.util.*;
+
+public class IfSsnExam {
+	public static void main(String[] args) {
+		// 주민등록 번호를 활용하는 예제
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.print("주민등록번호를 입력하세요(- 생략 가능합니다) : ");
+		String ssn = in.next();
+		boolean isIn = ssn.contains("-");
+		char ssn2;
+		
+		if (isIn) {
+			ssn2 = ssn.charAt(7);
+		} else {
+			ssn2 = ssn.charAt(6);
+		}
+		
+		
+	}
+}

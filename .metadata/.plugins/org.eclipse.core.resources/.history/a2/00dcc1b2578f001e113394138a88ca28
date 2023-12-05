@@ -1,0 +1,53 @@
+package ch05;
+
+import java.util.*;
+
+public class LottoExam {
+	public static void main(String[] args) {
+		//로또 당첨 프로그램
+		//랜덤값으로 1~45의 숫자를 맞추세요
+		
+		while (true) {
+			int num1 = (int)(Math.random()*45)+1;
+			int num2 = (int)(Math.random()*45)+1;
+			int num3 = (int)(Math.random()*45)+1;
+			int num4 = (int)(Math.random()*45)+1;
+			int num5 = (int)(Math.random()*45)+1;
+			int num6 = (int)(Math.random()*45)+1;
+			int num7 = (int)(Math.random()*45)+1;
+			
+			int correct = 0;
+			
+			Scanner input = new Scanner(System.in);
+			
+			System.out.print("숫자를 입력하세요 : ");
+			int number = input.nextInt();
+			
+			if ((number>45)||(number<1)) {
+				System.out.println("1~45 사이의 숫자만 입력해주세요.");
+				System.out.print("숫자를 입력하세요 : ");
+				number = input.nextInt();
+			}
+			
+			if (number == num1) {correct ++;}
+			if (number == num2) {correct ++;}
+			if (number == num3) {correct ++;}
+			if (number == num4) {correct ++;}
+			if (number == num5) {correct ++;}
+			if (number == num6) {correct ++;}
+			if (number == num7) {correct ++;}
+			
+			
+			System.out.printf("%d %d %d %d %d %d %d \n",num1,num2,num3,num4,num5,num6,num7);
+			if (correct > 0) {
+				if (correct > 1) {
+					System.out.println("축하드립니다. 5등에 당첩되셨습니다.");
+				} else {
+					System.out.println("축하드립니다. 당첨되셨습니다.");
+				}
+			} else {
+				System.out.println("안타깝네요. 다음 기회에~");
+			}
+		}
+	}
+}

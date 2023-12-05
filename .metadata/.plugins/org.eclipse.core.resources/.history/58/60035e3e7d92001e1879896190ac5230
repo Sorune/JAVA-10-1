@@ -1,0 +1,26 @@
+package ch05;
+
+public class Game {
+	public class Player {
+		int hp = 100;
+		int action = 0;
+		int attackDmg = 10;
+	}
+	
+	public static void main(String[] args) {
+		
+		Player player1 = new Player();
+		
+		Player player2 = new Player();
+		
+		System.out.println("--------------------------------");
+		System.out.println("게임을 시작합니다.");
+		System.out.println("--------------------------------");
+		
+		while (player1.hp <0 || player2.hp < 0) {
+			
+			
+			
+		}
+	}
+}
