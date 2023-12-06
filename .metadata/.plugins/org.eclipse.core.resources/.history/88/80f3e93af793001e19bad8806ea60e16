@@ -1,0 +1,32 @@
+package ch06;
+
+public class MinMaxExam {
+	public static void main(String[] args) {
+	int[] score = {78,80,91,33,100,55,95};
+	
+	System.out.println("최대값 : "+ max(score));
+	
+	}
+	
+	public static int max(int[] scores) {
+		int result = 0;
+		for ( int i = 0 ; i < scores.length;i++) {
+			if (result < scores[i]) {
+				result = scores[i];
+			}
+		}
+		
+		return result;
+	}
+	
+	public static int min(int[] scores) {
+		int result = 100;
+		for (int i = 0;i<scores.length;i++) {
+			if(result > scores[i]) {
+				result = scores[i];
+			}
+		}
+		
+		return result;
+	}
+}

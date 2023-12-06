@@ -29,6 +29,6 @@ public class ArrayMethodExam {
 	}
 	
 	public static double avg(int sum,int length) {
-		return sum / length; 
+		return sum / length;
 	}
 }

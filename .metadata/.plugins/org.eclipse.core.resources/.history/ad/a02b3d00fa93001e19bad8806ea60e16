@@ -1,0 +1,68 @@
+package ch06;
+
+import java.util.Scanner;
+
+public class MinMaxExam {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.print("숫자들을 입력하세요(1,2,3) : ");
+		String str = in.nextLine();
+		
+		String[] chars = str.split(",");
+		int[] score = new int[chars.length];
+		
+		for (int i = 0; i < score.length;i++) {
+			score[i] = Integer.parseInt(chars[i]);
+		}
+		
+		System.out.println("최대값 : "+ max(score));
+		System.out.println("최소값 : "+ min(score));
+	
+		System.out.println("최대값 : "+ minMax(score,1));
+		System.out.println("최소값 : "+ minMax(score,0));
+	}
+	
+	public static int max(int[] scores) {
+		int result = scores[0];
+		for ( int i = 1 ; i < scores.length;i++) {
+			if (result < scores[i]) {
+				result = scores[i];
+			}
+		}
+		
+		return result;
+	}
+	
+	public static int min(int[] scores) {
+		int result = scores[0];
+		for (int i = 1;i<scores.length;i++) {
+			if(result > scores[i]) {
+				result = scores[i];
+			}
+		}
+		
+		return result;
+	}
+	
+	public static int minMax(int[] scores, int x) {
+
+		int result = scores[0];
+		switch (x) {
+		case 1:
+			for ( int i = 1 ; i < scores.length;i++) {
+				if (result < scores[i]) {
+					result = scores[i];
+				}
+			}
+			break;
+		case 0:
+			for (int i = 1;i<scores.length;i++) {
+				if(result > scores[i]) {
+					result = scores[i];
+				}
+			}
+			break;
+		}
+		return result;
+	}
+}
