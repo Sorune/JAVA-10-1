@@ -1,0 +1,64 @@
+package ch06;
+
+import java.util.Scanner;
+
+public class ScoreExam {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("=========================================");
+		System.out.println("=========== 성적 관리 프로그램입니다.==========");
+		
+		int count = in.nextInt();
+	}
+	
+	public static int sum(int arr[]) {
+		int result = 0;
+		for (int i = 0 ; i < arr.length;i++) {
+			result += arr[i];
+		}
+		
+		return result;
+	}
+	
+	public static double avg(int[] arr) {
+		double result = 0;
+		int sum = 0;
+		for (int i = 0 ; i < arr.length;i++) {
+			sum += arr[i];
+		}
+		
+		result = sum / arr.length;
+		
+		return result;
+	}
+	
+	public static double avg(int x, int y) {
+		double result = x /y;
+		return result;
+	}
+	
+	public static int minMax(int[] arr, int x) {
+		int result = arr[0];
+		switch(x) {
+		case 0:		
+			for (int i = 0 ; i < arr.length ; i ++) {
+				if(result > arr[i]) {
+					result = arr[i];
+				}
+			}
+			break;
+		case 1:	
+			for (int i = 0 ; i < arr.length ; i ++) {
+				if(result > arr[i]) {
+					result = arr[i];
+				}
+			}
+			break;
+		}
+		return result;
+	}
+
+
+	
+	
+}
