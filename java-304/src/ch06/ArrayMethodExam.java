@@ -1,0 +1,34 @@
+package ch06;
+
+public class ArrayMethodExam {
+	public static void main(String[] args) {
+		//메서드를 이용하여 Array를 처리해 본다
+		int sum = add(new int[] {70,80,90});
+		double avg = avg(new int[] {70,80,90});
+		System.out.println("총 합은 "+sum+"이다");
+		System.out.println("평균은 "+avg+"이다");
+		
+	}
+	
+	public static int add(int[] scores) {
+		int sum = 0;
+		for (int i=0; i < scores.length;i++) {
+			sum+=scores[i];
+		}
+		return sum;
+	}
+	
+	public static double avg(int[] scores) {
+		int sum = 0;
+		double avg =0;
+		for (int i=0;i<scores.length;i++) {
+			sum+=scores[i];
+		}
+		avg = sum / scores.length;
+		return avg;		
+	}
+	
+	public static double avg(int sum,int length) {
+		return sum / length;
+	}
+}

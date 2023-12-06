@@ -1,0 +1,17 @@
+package ch06;
+
+public class ArrayMethodExam {
+	public static void main(String[] args) {
+		//메서드를 이용하여 Array를 처리해 본다
+		
+		
+	}
+	
+	public static int add(int[] scores) {
+		int sum = 0;
+		for (int i=0; i < scores.length;i++) {
+			sum+=scores[i];
+		}
+		return sum;
+	}
+}
