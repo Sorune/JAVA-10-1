@@ -41,8 +41,8 @@ public class ScoreExam {
 				System.out.println("1. 총점 계산 \t3. 최고/최저 점수 조회");
 				System.out.println("2. 평균 계산 \t4. 성적 정렬");
 				System.out.println("5. 학점 확인 \t6. 특정 범위 확인");
-				System.out.println("7. 초기 화면 \t8. 프로그램 종료");
-				System.out.println("======================================");
+				System.out.println("7. 초기 화면으로 \t 8. 프로그램 종료");
+				System.out.println("=========================================");
 				System.out.print(">>> ");
 				
 				menuSelect = in.nextInt();
