@@ -22,7 +22,7 @@ public class ScoreExam {
 			System.out.print("학생 수를 입력해 주세요 : ");
 			int count = in.nextInt();
 			
-			if (count < 1) {
+			if (count < 0) {
 				System.out.println("학생 수가 너무 적습니다.");
 				System.out.println("1명 이상의 학생을 입력해 주세요 적습니다.");
 				continue;
