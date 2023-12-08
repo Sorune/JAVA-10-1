@@ -780,7 +780,7 @@ public class ScoreExam {
 		return result;
 	}
 
-	public static int[][] checkRange(int[][] arr, int x, int y) {
+public static int[][] checkRange(int[][] arr, int x, int y) {
 	// 0 : 오름차순 / 1 : 내림차순
 	int[][] result = new int[arr.length][arr[0].length];
 	int[] tempArr = new int[arr.length];

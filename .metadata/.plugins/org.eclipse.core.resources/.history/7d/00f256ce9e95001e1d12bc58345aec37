@@ -513,9 +513,7 @@ public class ScoreExam {
 	
 	//2D Array 배열 합계
 	public static int[] sum(int[][] arr,String[] subject,int x) {
-		int[] result;
-		if (x==0) { result = new int[arr[0].length];}
-		else {result = new int[subject.length];}
+		int[] result = new int[arr[0].length];
 		int sum;
 		switch(x) {
 		// 학생별 총점
@@ -556,9 +554,7 @@ public class ScoreExam {
 	
 	//2D Array 배열 평균
 	public static double[] avg(int[][] arr, String[] subject, int x) {
-		double[] result;
-		if (x==0) { result = new double[arr[0].length];}
-		else {result = new double[subject.length];}
+		double[] result = new double[arr[0].length];
 		int sum;
 		switch(x) {
 		// 학생별 평균
@@ -780,7 +776,7 @@ public class ScoreExam {
 		return result;
 	}
 
-	public static int[][] checkRange(int[][] arr, int x, int y) {
+public static int[][] checkRange(int[][] arr, int x, int y) {
 	// 0 : 오름차순 / 1 : 내림차순
 	int[][] result = new int[arr.length][arr[0].length];
 	int[] tempArr = new int[arr.length];
