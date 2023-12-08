@@ -1,0 +1,14 @@
+package ch06;
+
+public class MultiArrayExam {
+	public static void main(String[] args) {
+		//다차원 배열(2차원)은 행열구조로 되어있는 표
+		// in[][] scores = new int[][];
+		// 앞에 있는 대괄호는 행, 뒤에 있는 대괄호는 열로 삽입
+		int[][] scores = new int [2][3];//2*3행렬
+		
+		
+		System.out.println("행의 개수 : "+scores.length);
+		System.out.println("열의 개수 : "+scores[0].length;);
+	}
+}

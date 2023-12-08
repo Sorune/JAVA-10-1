@@ -48,7 +48,7 @@ public class ScoreExam {
 			// 이름 배열과 점수 배열은 타입이 다름
 			// 따라서 점수 배열에 이름 배열과 매칭 될 id배열을 부여
 			// 배열의 형태 (ex : 국어 영어 수학)
-			// [[0, 75, 95, 66], [1, 85, 85, 55], [2, 95, 85, 44]]
+			// [[0, 1,2,3,4], [75, 85, 85, 55,85], [65, 95, 85, 44,95],{75,65,85,75,35]
 			// idScore[점수][과목,0번 인덱스는 이름 배열로 매칭될 id로 설정]
 			name = new String[count];
 			idScore = new int[subject.length+1][count];
@@ -85,13 +85,14 @@ public class ScoreExam {
 				System.out.println("1. 총점 계산 \t3. 최고/최저 점수 조회");
 				System.out.println("2. 평균 계산 \t4. 성적 정렬");
 				System.out.println("5. 학점 확인 \t6. 특정 범위 확인");
-				System.out.println("7. 초기 화면 \t8. 프로그램 종료");
+				System.out.println("7. 수정 모드 \t8. 성적표 출력 ");
+				System.out.println("9. 초기 화면 \t10. 프로그램 종료");
 				System.out.println("======================================");
 				System.out.print(">>> ");
 				
 				menuSelect = in.nextInt();
 				
-				if (menuSelect < 1 || menuSelect > 8) {
+				if (menuSelect < 1 || menuSelect > 10) {
 					System.out.println("메뉴 선택이 잘못되었습니다.");
 					System.out.println("올바른 메뉴를 선택해주세요.");
 					continue;
@@ -184,7 +185,7 @@ public class ScoreExam {
 						}
 						System.out.println();
 						System.out.print(">>> ");
-						selectSubject = in.nextInt()-1;
+						selectSubject = in.nextInt();
 						
 						if (selectSubject < 0 || selectSubject > subject.length) {
 							System.out.println("메뉴 선택이 잘못되었습니다.");
@@ -192,7 +193,7 @@ public class ScoreExam {
 							continue;
 						} else {
 							result = minMax(idScore,subject,minMax,selectSubject);
-							System.out.printf("%s과목의 최고점은 %d점인 %s학생입니다.",subject[selectSubject],result[selectSubject+1],name[result[0]]);
+							System.out.printf("%s과목의 %s은 %d점인 %s학생입니다.",subject[selectSubject-1],minMaxString,result[selectSubject],name[result[0]]);
 						}
 						
 					}
@@ -217,7 +218,7 @@ public class ScoreExam {
 						}
 						System.out.println();
 						System.out.print(">>> ");
-						selectSubject = in.nextInt()-1;
+						selectSubject = in.nextInt();
 						
 						if (selectSubject < 0 || selectSubject > subject.length) {
 							System.out.println("메뉴 선택이 잘못되었습니다.");
@@ -225,7 +226,7 @@ public class ScoreExam {
 							continue;
 						} else {
 							int[][] sortResult = sort(idScore,sort,selectSubject);
-							System.out.printf("%s과목 기준으로 %s한 결과는 다음과 같습니다.\n",subject[selectSubject],orderBy);
+							System.out.printf("%s과목 기준으로 %s한 결과는 다음과 같습니다.\n",subject[selectSubject-1],orderBy);
 							for (int i = 0;i<idScore.length;i++) {
 								System.out.printf("%s학생의 ",name[sortResult[0][i]]);
 								for (int j = 0; j<subject.length;j++) {
@@ -242,16 +243,21 @@ public class ScoreExam {
 					int select;
 					showScore(idScore,name,subject,selectPrint);
 					System.out.println("확인할 학생을 선택해 주세요.");
+					for (int i = 0; i<name.length;i++) {
+						System.out.printf("%d. %s\t",i+1,name[i]);
+					}
+					System.out.println();
 					System.out.print(">>> ");
 					select = in.nextInt()-1;
 					
-					if (select<0 || select > count) {
+					if (select<0 || select > name.length) {
 						System.out.println("잘못된 번호입니다.");
 						System.out.println("정확한 학생의 번호를 입력해 주세요.");
 						continue;
 					}
+					dbresult = avg(idScore,subject,0);
 					
-					System.out.printf("%d번 학생의 학점은 %s입니다.\n",select+1,gradeCheck(score[select]));
+					System.out.printf("%s학생의 학점은 %s입니다.\n",name[select],gradeCheck(dbresult[select]));
 					continue;
 				case 6 :
 					int range = 0;
@@ -261,43 +267,186 @@ public class ScoreExam {
 					System.out.print(">>> ");
 					range = in.nextInt()-1;
 					
+					if(range == 0) {orderBy = "상위";} else {orderBy = "하위";}
+					
 					if (range < 0 || range > 1) {
 						System.out.println("선택이 잘못되었습니다.");
 						System.out.println("올바른 정렬 방식을 선택해주세요.");
 						continue;
 					} else {
-						int rangeCount = 0;
-						System.out.println("확인할 학생의 수를 입력해 주세요.");
+						System.out.printf("정렬할 과목을 선택하세요.\n");
+						for (int i = 0; i<subject.length;i++) {
+							System.out.printf("%d. %s\t",i+1,subject[i]);
+						}
+						System.out.println();
 						System.out.print(">>> ");
-						rangeCount = in.nextInt();
+						selectSubject = in.nextInt();
 						
-						if (rangeCount < 0 || rangeCount > count) {
-							System.out.println("학생의 수를 잘못 입력하셨습니다.");
-							System.out.println("정확한 수를 입력해 주세요");
+						if (selectSubject < 0 || selectSubject > subject.length) {
+							System.out.println("메뉴 선택이 잘못되었습니다.");
+							System.out.println("올바른 메뉴를 선택해주세요.");
 							continue;
 						} else {
-							if (range == 0) {
-								result = checkRange(score,range,rangeCount);
-								System.out.printf("상위 학생들의 점수는 다음과 같습니다..\n");
-								for (int i = 0; i < rangeCount;i++) {
-									System.out.printf("상위 %d번 학생 : %d\n",i+1,result[i]);
-									}
-							}else {
-								result = checkRange(score,range,rangeCount);
-								System.out.printf("하위 학생들의 점수는 다음과 같습니다..\n");
-								for (int i = 0; i < rangeCount;i++) {
-									System.out.printf("하위 %d번 학생 : %d\n",i+1,result[i]);
-									}
+							int rangeCount = 0;
+							System.out.println("확인할 학생의 수를 입력해 주세요.");
+							System.out.print(">>> ");
+							rangeCount = in.nextInt();
+							
+							if (rangeCount < 0 || rangeCount > count) {
+								System.out.println("학생의 수를 잘못 입력하셨습니다.");
+								System.out.println("정확한 수를 입력해 주세요");
+								continue;
+							} else {
+								if (range == 0) {
+
+									int[][] result2D = checkRange(idScore,range,selectSubject);
+									System.out.printf("%s과목 기준으로 %s한 결과는 다음과 같습니다.\n",subject[selectSubject-1],orderBy);
+									for (int i = 0; i < rangeCount;i++) {
+										System.out.printf("하위 %d번 %s학생의 %s점수 : %d\n",i+1,name[result2D[0][i]],subject[selectSubject-1],result2D[selectSubject][i]);
+										}
+								}else {
+									int[][] result2D = checkRange(idScore,range,selectSubject);
+									System.out.printf("%s과목 기준으로 %s한 결과는 다음과 같습니다.\n",subject[selectSubject-1],orderBy);
+									for (int i = 0; i < rangeCount;i++) {
+										System.out.printf("하위 %d번 %s학생의 %s점수 : %d\n",i+1,name[result2D[0][i]],subject[selectSubject-1],result2D[selectSubject][i]);
+										}
+								}
+
+							}
+						}
+					
+					}
+					continue;
+				case 7:
+					int selectMod = 0;
+					System.out.println("======================================");
+					System.out.println("수정할 항목을 선택하세요.");
+					System.out.println("1. 학생명 \t2. 성적");
+					System.out.print(">>> ");
+					selectMod = in.nextInt();
+					switch(selectMod) {
+					case 1:
+						System.out.println("======================================");
+						System.out.println("수정할 학생을 선택하세요");
+						for (int i = 0 ; i < idScore[0].length;i++) {
+							System.out.printf("%d. %s\t",i+1,name[idScore[0][i]]);
+						}
+						System.out.println();
+						System.out.print(">>> ");
+						int selectName;
+						selectName = in.nextInt()-1;
+						String t = in.nextLine();
+						if (selectName < 0 || selectName>idScore[0].length) {
+							System.out.println("잘못된 학생을 입력하셨습니다.");
+							System.out.println("정확한 학생을 입력해 주세요");
+						} else {
+							System.out.println("수정할 이름을 입력하세요.");
+							System.out.print(">>> ");
+							name[idScore[0][selectName]] = in.nextLine();
+						}
+						System.out.println();
+						System.out.println("수정된 학생 목록은 다음과 같습니다.");
+						for (int i = 0 ; i < idScore[0].length;i++) {
+							System.out.printf("%d. %s\n",i+1,name[idScore[0][i]]);
+						}
+						continue;
+					case 2:
+						System.out.println("======================================");
+						System.out.println("수정할 학생을 선택하세요");
+						for (int i = 0 ; i < idScore[0].length;i++) {
+							System.out.printf("%d. %s\t",i+1,name[idScore[0][i]]);
+						}
+						System.out.println();
+						System.out.print(">>> ");
+						selectName = in.nextInt()-1;
+						t = in.nextLine();
+						if (selectName < 0 || selectName>idScore[0].length) {
+							System.out.println("잘못된 학생을 입력하셨습니다.");
+							System.out.println("정확한 학생을 입력해 주세요");
+						} else {
+							System.out.println("======================================");
+							System.out.println("수정할 과목을 선택하세요");
+							for (int i = 0 ; i < subject.length;i++) {
+								System.out.printf("%d. %s\t",i+1,subject[i]);
+							}
+							System.out.print(">>> ");
+							selectSubject = in.nextInt();
+							
+							if (selectSubject < 0 || selectSubject>subject.length) {
+								System.out.println("잘못된 과목을 입력하셨습니다.");
+								System.out.println("정확한 과목을 입력해 주세요");
+							} else {
+								System.out.println("수정할 점수를 입력하세요.");
+								System.out.print(">>> ");
+								idScore[selectSubject][selectName] = in.nextInt();
+							}
+							System.out.println();
+							System.out.println("수정된 과목 점수 목록은 다음과 같습니다.");
+							for (int i = 0 ; i < idScore[0].length;i++) {
+								System.out.printf("%s학생의 %s점수 : %d\n",name[idScore[0][i]],subject[selectSubject-1],idScore[selectSubject][i]);
 							}
 						}
 					}
-					
 					continue;
-				case 7 :
+				case 8:
+					selectMod = 0;
+					System.out.println("======================================");
+					System.out.println("출력할 항목을 선택하세요.");
+					System.out.println("1. 학생별 \t2. 과목별");
+					System.out.print(">>> ");
+					selectMod = in.nextInt();
+					switch(selectMod) {
+					case 1:
+						System.out.println("======================================");
+						System.out.println("출력할 학생을 선택하세요");
+						for (int i = 0 ; i < idScore[0].length;i++) {
+							System.out.printf("%d. %s\t",i+1,name[idScore[0][i]]);
+						}
+						System.out.println();
+						System.out.print(">>> ");
+						int selectName;
+						selectName = in.nextInt()-1;
+						String t = in.nextLine();
+						if (selectName < 0 || selectName>idScore[0].length) {
+							System.out.println("잘못된 학생을 입력하셨습니다.");
+							System.out.println("정확한 학생을 입력해 주세요");
+						} else {
+							System.out.println("======================================");
+							System.out.printf("%s학생의 성적표 입니다.\n",name[selectName]);
+							System.out.println("======================================");
+							for (int i = 0 ; i < subject.length;i++) {
+								System.out.printf("%d.%s : %d 학점 : %s\n",i+1,subject[i],idScore[i+1][selectName],gradeCheck(idScore[i+1][selectName]));
+							}
+						}
+						continue;
+					case 2:
+						System.out.println("======================================");
+						System.out.println("출력할 과목을 선택하세요");
+						for (int i = 0 ; i < subject.length;i++) {
+							System.out.printf("%d. %s\t",i+1,subject[i]);
+						}
+						System.out.println();
+						System.out.print(">>> ");
+						selectSubject = in.nextInt();
+						t = in.nextLine();
+						if (selectSubject < 0 || selectSubject>subject.length) {
+							System.out.println("잘못된 과목을 입력하셨습니다.");
+							System.out.println("정확한 과목을 입력해 주세요");
+						} else {
+							System.out.println("======================================");
+							System.out.printf("%s과목의 성적표 입니다.\n",subject[selectSubject-1]);
+							System.out.println("======================================");
+							for (int i = 0 ; i < idScore[0].length;i++) {
+								System.out.printf("%d.%s : %d 학점 : %s\n",i+1,name[idScore[0][i]],idScore[selectSubject][i],gradeCheck(idScore[selectSubject][i]));
+							}
+						}
+					}
+					continue;
+				case 9 :
 					System.out.println("초기화면으로 돌아갑니다.");
 					mainMenu = 0;
 					continue;
-				case 8 :
+				case 10 :
 					System.out.println("프로그램을 종료하시겠습니까? 종료하시려면 y를 눌러주세요.");
 					System.out.print(">>> ");
 					exit = in.next();
@@ -306,7 +455,6 @@ public class ScoreExam {
 				}
 				
 			}
-		
 			
 		}
 		System.out.println("프로그램을 종료합니다.");
@@ -325,8 +473,8 @@ public class ScoreExam {
 		// 0 : 학생별 성적 나열, 1 : 과목별 성적 나열
 		case 0:
 			
-			for (int i = 0; i<subject.length;i++) {
-				for (int j = 0 ; j<name.length;j++) {
+			for (int j = 0; j<name.length;j++) {
+				for (int i = 0 ; i<subject.length;i++) {
 					System.out.printf("%s 학생의 %s성적 : %d\n",name[j],subject[i],idScore[i+1][j]);
 				}
 			}
@@ -456,27 +604,32 @@ public class ScoreExam {
 			result[i] = arr[i][0];
 		}
 		//비교할 과목의 점수 초기값 설정
-		int temp = result[y+1];
+		int temp = result[y];
 		switch(x) {
 		//최대값 비교
 		case 0:		
-			for (int i = 0 ; i < arr.length ; i ++) {
-				if(temp < arr[y+1][i]) {
-					for (int j = 0 ; j < arr.length;j++)
-						result[j] = arr[i][j];
+			for (int i = 0 ; i < arr[y].length ; i ++) {
+				if(temp < arr[y][i]) {
+					for (int j = 0 ; j < arr.length;j++) {
+						result[j] = arr[j][i];
+						temp = arr[y][i];
+					}
 				}
 			}
 			break;
 		case 1:	
 		//최소값 비교
-			for (int i = 0 ; i < arr.length ; i ++) {
-				if(temp > arr[i][y+1]) {
-					for (int j = 0 ; j < arr.length;j++)
-						result[j] = arr[j][y+1];
+			for (int i = 0 ; i < arr[y].length ; i ++) {
+				if(temp > arr[y][i]) {
+					for (int j = 0 ; j < arr.length;j++) {
+						result[j] = arr[j][i];
+						temp = arr[y][i];
 					}
 				}
-			break;
+
 			}
+			break;
+		}
 		return result;
 		}
 
@@ -515,16 +668,12 @@ public class ScoreExam {
 		int[] tempArr = new int[arr.length];
 		switch(x) {
 		case 0:
-				for (int i = 0 ; i <arr.length-1;i++) {
-					for (int j = 0; j<arr.length-1-i;j++) {
-						if(arr[y+1][j]>arr[y+1][j+1]) {
+				for (int i = 0 ; i <arr[y].length-1;i++) {
+					for (int j = 0; j<arr[y].length-1-i;j++) {
+						if(arr[y][j]>arr[y][j+1]) {
 								for (int z = 0;z<tempArr.length;z++) {
 									tempArr[z] = arr[z][j+1];
-								}
-								for (int z = 0;z<tempArr.length;z++) {
 									arr[z][j+1] = arr[z][j];
-								}
-								for (int z = 0;z<tempArr.length;z++) {
 									arr[z][j] = tempArr[z];
 								}
 						}
@@ -532,16 +681,12 @@ public class ScoreExam {
 				}
 				break;
 			case 1:
-				for (int i = 0 ; i <arr.length-1;i++) {
-					for (int j = 0; j<arr.length-1-i;j++) {
-						if(arr[y+1][j]<arr[y+1][j+1]) {
+				for (int i = 0 ; i <arr[y].length-1;i++) {
+					for (int j = 0; j<arr[y].length-1-i;j++) {
+						if(arr[y][j]<arr[y][j+1]) {
 								for (int z = 0;z<tempArr.length;z++) {
 									tempArr[z] = arr[z][j+1];
-								}
-								for (int z = 0;z<tempArr.length;z++) {
 									arr[z][j+1] = arr[z][j];
-								}
-								for (int z = 0;z<tempArr.length;z++) {
 									arr[z][j] = tempArr[z];
 								}
 						}
@@ -569,7 +714,24 @@ public class ScoreExam {
 		
 		return result;
 	}
-
+	
+	public static String gradeCheck(double x) {
+		String result = "";
+		if (x>90) {
+			result = "A";
+		} else if (x>80) {
+			result = "B";
+		} else if (x > 70) {
+			result = "C";
+		} else if (x > 60) {
+			result = "D";
+		} else {
+			result = "F";
+		}
+		
+		return result;
+	}
+	
 	public static int[] checkRange(int[] arr, int x,int y) {
 		int[] result = new int[y];
 		switch(x) {
@@ -600,5 +762,45 @@ public class ScoreExam {
 			result[i] = arr[i];
 		}
 		return result;
+	}
+
+public static int[][] checkRange(int[][] arr, int x, int y) {
+	// 0 : 오름차순 / 1 : 내림차순
+	int[][] result = new int[arr.length][arr[0].length];
+	int[] tempArr = new int[arr.length];
+	switch(x) {
+	case 1:
+			for (int i = 0 ; i <arr[y].length-1;i++) {
+				for (int j = 0; j<arr[y].length-1-i;j++) {
+					if(arr[y][j]>arr[y][j+1]) {
+							for (int z = 0;z<tempArr.length;z++) {
+								tempArr[z] = arr[z][j+1];
+								arr[z][j+1] = arr[z][j];
+								arr[z][j] = tempArr[z];
+							}
+					}
+				}
+			}
+			break;
+		case 0:
+			for (int i = 0 ; i <arr[y].length-1;i++) {
+				for (int j = 0; j<arr[y].length-1-i;j++) {
+					if(arr[y][j]<arr[y][j+1]) {
+							for (int z = 0;z<tempArr.length;z++) {
+								tempArr[z] = arr[z][j+1];
+								arr[z][j+1] = arr[z][j];
+								arr[z][j] = tempArr[z];
+							}
+					}
+				}
+			}
+			break;
+		}
+	for (int i = 0 ; i< arr.length ; i++) {
+		for (int j = 0; j <arr[0].length ; j++ ) {
+			result[i][j] = arr[i][j];
+		}
+	}
+	return result;
 	}
 }
