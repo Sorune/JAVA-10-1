@@ -284,29 +284,25 @@ public class AutoSeller {
 			System.out.println("ID를 입력하세요");
 			System.out.print(">>> ");
 			String checkID = in.next();
-			if (checkID == null || checkID.isBlank() || checkID.isEmpty()) {
-				System.out.println("ID가 잘못되었습니다. 다시 입력하세요.");
-			} else {
-					
-					for (int i = 0; i<idArray.length ; i ++ ) {
-						if(idArray[i][0].equals(checkID)) {
-							do {
-								System.out.println("PASSWORD를 입력하세요.");
-								System.out.print(">>> ");
-								checkPASS = in.next();
-								count++;
-								if (idArray[i][0].equals(checkID) && idArray[i][1].equals(checkPASS)) {
-									isLogin = true;
-								}
-								
-								if(count>5) break;
-							} while (!checkPASS.equals(idArray[i][1]));
-							
-							break;
+			
+			for (int i = 0; i<idArray.length ; i ++ ) {
+				if(idArray[i][0].equals(checkID)) {
+					do {
+						System.out.println("PASSWORD를 입력하세요.");
+						System.out.print(">>> ");
+						checkPASS = in.next();
+						count++;
+						if (idArray[i][0].equals(checkID) && idArray[i][1].equals(checkPASS)) {
+							isLogin = true;
 						}
-					}
-					count++;
+						
+						if(count>5) break;
+					} while (!checkPASS.equals(idArray[i][1]));
+					
+					break;
+				}
 			}
+			count++;
 		} while (!isLogin && count < 5);
 		
 	return isLogin;
