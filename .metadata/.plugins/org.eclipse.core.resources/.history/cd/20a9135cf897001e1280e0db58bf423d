@@ -440,8 +440,6 @@ public class AutoSeller {
 				if (menu.menuName[i]==null) break;
 				System.out.printf("%d. %s\t",i+1,menu.menuName[i]);
 			}
-			System.out.println();
-			System.out.print(">>> ");
 			choice = in.nextInt()-1;
 			System.out.println();
 			menu.menuName = addMenuName(menu.menuName, x, choice);
