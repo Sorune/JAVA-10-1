@@ -1,0 +1,207 @@
+package ch06;
+
+import java.util.Scanner;
+
+public class AutoSeller {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		final int ACCESS_CODE = 3917;
+		boolean isFirstStart = true, loginProcess = false, administorMode = false;
+		String[][] idArray = new String[10][2];
+		String[] menuName;
+		int[][] menuList;
+		String checkPass = "";
+		
+		//자판기 프로그램 변수
+		int selectMode = 0;
+		int runProcess = 1;
+		int selectAdminMode = 0;
+		//자판기 운영에 필요한 변수
+		int cash = 0;
+		
+		
+		while(isFirstStart) {
+			System.out.println("자판기 관리 시스템을 시작합니다.");
+			System.out.println("최초 사용자 등록이 필요합니다.");
+			accountGenerator(idArray);
+			isFirstStart = false;
+			}
+			
+		while(runProcess == 1) {
+			// Administor Login
+			loginProcess = accountLogin(idArray);
+			while (loginProcess) {
+				//UserMenu Load
+				System.out.println("사용할 메뉴를 선택해주세요");
+				System.out.println("1. 요금 투입 \t2. 메뉴 선택");
+				System.out.println("3. 잔돈 반환 \t4. 관리 모드");
+				System.out.print(">>> ");
+				selectMode = in.nextInt();
+				switch(selectMode) {
+				case 1:
+					System.out.println("투입할 금액을 입력하세요.");
+					System.out.print(">>> ");
+					int cashCheck = in.nextInt();
+					if (cashCheck < 0) {
+						System.out.println("금액을 잘못 입력하셨습니다.");
+						continue;
+					}else { 
+						cash += cashCheck;
+						System.out.printf("현재 잔액은 %d원 입니다.\n",cash);
+					}
+					continue;
+				case 2:
+					
+					continue;
+				case 3:
+					System.out.println("잔돈을 반환합니다.");
+					System.out.printf("반환된 금액은 %d원 입니다.\n",cash);
+					cash = 0;
+					System.out.printf("현재 잔액은 %d원 입니다.\n",cash);
+					continue;
+				case 4:
+					administorMode = accountLogin(idArray);
+					if (administorMode) {
+						System.out.println("관리자 모드로 진입합니다.");
+					}
+					else {
+						System.out.println("로그인에 실패하였습니다. 메인메뉴로 돌아갑니다.");
+					}
+					while(administorMode) {
+						System.out.println("관리자 모드입니다.");
+						System.out.println("사용할 메뉴를 선택하세요");
+						System.out.println("1. 관리자 계정 추가 \t2. 관리자 계정 삭제");
+						System.out.println("3. 잔돈 반환 \t\t4. 관리 모드");
+						System.out.print(">>> ");
+						selectAdminMode = in.nextInt();
+						switch(selectAdminMode) {
+						case 1:
+							accountGenerator(idArray);
+							continue;
+						case 2:
+							
+							continue;
+						case 3:
+							
+							continue;
+						case 4:
+							
+							continue;
+						}
+					}
+				}
+			}
+		}
+		
+		
+			
+			
+			
+		
+		
+			
+			
+		}
+	
+	
+	public static String[][] accountGenerator(String[][] idArray){
+		Scanner in = new Scanner(System.in);
+		boolean accountCreate = false;
+		int count = 0;
+		for (int i = 0; i < idArray.length ; i ++) {
+			if (idArray[i][0]==null || idArray[i][0].isEmpty() || idArray[i][0].isBlank()) {
+				count++;
+			}
+		}
+		System.out.printf("현재 등록 가능한 관리자 계정은 %d개입니다.\n",count);
+		for (int i = 0 ; i < idArray.length ; i ++) {
+			if (idArray[i][0]==null ||idArray[i][0].isEmpty() || idArray[i][0].isBlank()) {
+				System.out.println("사용할 ID릅 입력하세요");
+				System.out.print(">>> ");
+				idArray[i][0] = in.next();
+				boolean checkProcess = true;
+				do {
+				
+				System.out.println("사용할 PASSWORD릅 입력하세요");
+				System.out.print(">>> ");
+				String checkPass = in.next();
+				System.out.println("PASSWORD릅 한번 더 입력하세요");
+				System.out.print(">>> ");
+				String tmp = in.next();
+				
+				if (tmp.equals(checkPass)) {
+					idArray[i][1] = checkPass;
+					checkProcess = false;
+					accountCreate = true;
+					break;
+				} else {
+					System.out.println("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+				}
+				} while (checkProcess);
+			}
+			if(accountCreate) {
+				System.out.println("사용자 등록을 완료하였습니다. 로그인 해주세요.");
+				break;
+				}
+			
+		}
+	return idArray;
+	}
+
+	public static boolean accountLogin(String[][] idArray) {
+		boolean isLogin = false;
+		Scanner in = new Scanner(System.in);
+		int count = 0 ;
+		String checkPASS ="";
+		do {
+			
+			System.out.println("ID를 입력하세요");
+			System.out.print(">>> ");
+			String checkID = in.next();
+			
+			for (int i = 0; i<idArray.length ; i ++ ) {
+				if(idArray[i][0].equals(checkID)) {
+					do {
+						System.out.println("PASSWORD를 입력하세요.");
+						System.out.print(">>> ");
+						checkPASS = in.next();
+						count++;
+						if (idArray[i][0].equals(checkID) && idArray[i][1].equals(checkPASS)) {
+							isLogin = true;
+						}
+						
+						if(count>5) break;
+					} while (!checkPASS.equals(idArray[i][1]));
+					
+					break;
+				}
+			}
+			count++;
+		} while (!isLogin && count < 5);
+		
+	return isLogin;
+	}
+
+	public static String[][] deleteAccount(String[][] idArray){
+		Scanner in = new Scanner(System.in);
+		System.out.println("삭제할 계정을 선택해 주세요");
+		for (int i = 0 ; i < idArray.length ; i ++) {
+			if(idArray[i][0]==null) {
+				break;
+			} else {
+				System.out.printf("%d. %s\t",i+1,idArray[i][0]);
+			}
+		}
+		System.out.print(">>> ");
+		int delNum = in.nextInt()-1;
+		if (delNum<0||delNum>idArray.length) {
+			System.out.println("잘못된 번호입니다.");
+			System.out.println("메인메뉴로 돌아갑니다.");
+		}else {
+			System.out.printf("선택한 아이디 %s를 삭제합니다.\n",idArray[delNum][0]);
+			idArray[delNum][0] =null;
+			idArray[delNum][1] =null;
+		}
+		return idArray;
+	}
+}

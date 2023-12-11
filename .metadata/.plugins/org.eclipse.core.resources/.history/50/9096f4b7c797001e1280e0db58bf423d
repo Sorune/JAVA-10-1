@@ -1,0 +1,79 @@
+package ch06;
+
+import java.util.Scanner;
+
+public class AutoSeller {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		final int ACCESS_CODE = 3917;
+		boolean isFirstStart = true;
+		String[][] idArray = new String[10][2];
+		String checkPass = "";
+		
+		while(isFirstStart) {
+			System.out.println("자판기 관리 시스템을 시작합니다.");
+			System.out.println("최초 사용자 등록이 필요합니다.");
+			accountGenerator(idArray);
+			isFirstStart = false;
+			}
+			
+			
+			
+			
+		
+		
+		
+		
+		
+		int selectMode = 0;
+		
+		
+		
+		
+		while(selectMode == 0) {
+			// User Mode
+		
+		}
+		
+		
+		while(selectMode == 1) {
+			// Administor Mode\
+			
+			
+		}
+	}
+	
+	public static String[][] accountGenerator(String[][] idArray){
+		Scanner in = new Scanner(System.in);
+		boolean accountCreate = false;
+		for (int i = 0 ; i < idArray.length ; i ++) {
+			if (idArray[i][0]==null ||idArray[i][0].isEmpty() || idArray[i][0].isBlank()) {
+				System.out.println("사용할 ID릅 입력하세요");
+				System.out.print(">>> ");
+				idArray[i][0] = in.next();
+				boolean checkProcess = true;
+				do {
+				
+				System.out.println("사용할 PASSWORD릅 입력하세요");
+				System.out.print(">>> ");
+				String checkPass = in.next();
+				System.out.println("PASSWORD릅 한번 더 입력하세요");
+				System.out.print(">>> ");
+				String tmp = in.next();
+				
+				if (tmp.equals(checkPass)) {
+					idArray[i][1] = checkPass;
+					checkProcess = false;
+					accountCreate = true;
+					break;
+				} else {
+					System.out.println("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+				}
+				} while (checkProcess);
+			}
+			if(accountCreate) break;
+			
+		}
+	return idArray;
+	}
+}
