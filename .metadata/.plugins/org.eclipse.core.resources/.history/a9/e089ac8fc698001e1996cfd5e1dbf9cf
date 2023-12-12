@@ -196,7 +196,7 @@ public class ReservationSystem {
 					System.out.print(">>> ");
 					roomNum = in.next();
 					
-					if(checkUserRes(info.rooms,roomNum)||!roomNum.substring(1,2).equals("0")) {
+					if(checkUserRes(info.rooms,roomNum)) {
 						System.out.println("예약할 수 없는 방입니다.");
 						System.out.println("다른 방을 골라주세요.");
 					} else {
@@ -426,7 +426,7 @@ public class ReservationSystem {
 												System.out.printf("기존 %s : %s\n",info.USER_KEY[z],info.users[i][z]);
 												System.out.print(">>> ");
 												String tmp = in.next();
-												if(checkUserRes(info.rooms,tmp)||!tmp.substring(1,2).equals("0")) {
+												if(checkUserRes(info.rooms,tmp)) {
 													System.out.println("예약할 수 없는 방입니다.");
 													System.out.println("다른 방을 골라주세요.");
 												} else {
