@@ -411,7 +411,7 @@ public class ReservationSystem {
 								if (info.users[i][0].equals(checkID) && info.users[i][4].equals(checkPASS)) {
 									while (!isLogin) {
 										System.out.println("작업을 선택해 주세요");
-										System.out.println("1. 예약 변경\t2.예약 취소");
+										System.out.println("1. 예약 변경\t2.예약 확인");
 										int choiceMenu = in.nextInt();
 										switch (choiceMenu) {
 										case  1:
@@ -422,26 +422,10 @@ public class ReservationSystem {
 											System.out.println();
 											System.out.print(">>> ");
 											int z = in.nextInt()-1;
-											if (z==3){
-												System.out.println("변경할 호실을 입력해 주세요");
-												showResInfo(info.rooms,1);
-												System.out.printf("기존 %s : %s\n",info.USER_KEY[z],info.users[i][z]);
-												System.out.print(">>> ");
-												String tmp = in.next();
-												if(checkUserRes(info.rooms,tmp)) {
-													System.out.println("예약할 수 없는 방입니다.");
-													System.out.println("다른 방을 골라주세요.");
-												} else {
-													info.rooms = saveUserRes(info.rooms,info.users[i][z],-1);
-													info.rooms = saveUserRes(info.rooms,tmp,i);
-												}
-											} else {
-												System.out.printf("변경할 %s의 내용을 입력하세요.\n",info.USER_KEY[z]);
-												System.out.printf("기존 %s : %s\n",info.USER_KEY[z],info.users[i][z]);
-												System.out.print(">>> ");
-												String tmp = in.next();
-												info.users[i][z] = tmp;
-											}
+											System.out.printf("변경할 %s의 내용을 입력하세요.\n",info.USER_KEY[z]);
+											System.out.printf("기존 %s : %s\n",info.USER_KEY[z],info.users[i][z]);
+											System.out.print(">>> ");
+											info.users[i][z] = in.next();
 											isLogin = true;
 											break;
 										case 2:
@@ -450,7 +434,7 @@ public class ReservationSystem {
 											System.out.print(">>> ");
 											String s = in.next();
 											if (s.toLowerCase().equals("y")) {
-												info.rooms = saveUserRes(info.rooms,info.users[i][3],-1);
+												info.rooms = saveUserRes(info.rooms,info.rooms[i][3],-1);
 												for (int w = 0 ; w < info.rooms[i].length ; w ++ ) {
 													info.rooms[i][w] = null;
 												}
@@ -474,7 +458,6 @@ public class ReservationSystem {
 						} else {}
 					}
 					count++;
-					
 					if (!isLogin) {
 						System.out.println("예약자 정보가 없습니다.");
 					}

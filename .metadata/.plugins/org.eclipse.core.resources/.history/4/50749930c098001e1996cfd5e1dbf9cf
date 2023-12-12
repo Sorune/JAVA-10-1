@@ -411,7 +411,7 @@ public class ReservationSystem {
 								if (info.users[i][0].equals(checkID) && info.users[i][4].equals(checkPASS)) {
 									while (!isLogin) {
 										System.out.println("작업을 선택해 주세요");
-										System.out.println("1. 예약 변경\t2.예약 취소");
+										System.out.println("1. 예약 변경\t2.예약 확인");
 										int choiceMenu = in.nextInt();
 										switch (choiceMenu) {
 										case  1:
@@ -432,7 +432,7 @@ public class ReservationSystem {
 													System.out.println("예약할 수 없는 방입니다.");
 													System.out.println("다른 방을 골라주세요.");
 												} else {
-													info.rooms = saveUserRes(info.rooms,info.users[i][z],-1);
+													info.rooms = saveUserRes(info.rooms,info.rooms[i][3],-1);
 													info.rooms = saveUserRes(info.rooms,tmp,i);
 												}
 											} else {
@@ -450,7 +450,7 @@ public class ReservationSystem {
 											System.out.print(">>> ");
 											String s = in.next();
 											if (s.toLowerCase().equals("y")) {
-												info.rooms = saveUserRes(info.rooms,info.users[i][3],-1);
+												info.rooms = saveUserRes(info.rooms,info.rooms[i][3],-1);
 												for (int w = 0 ; w < info.rooms[i].length ; w ++ ) {
 													info.rooms[i][w] = null;
 												}

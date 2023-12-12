@@ -450,7 +450,7 @@ public class ReservationSystem {
 											System.out.print(">>> ");
 											String s = in.next();
 											if (s.toLowerCase().equals("y")) {
-												info.rooms = saveUserRes(info.rooms,info.users[i][3],-1);
+												info.rooms = saveUserRes(info.rooms,info.users[i][z],-1);
 												for (int w = 0 ; w < info.rooms[i].length ; w ++ ) {
 													info.rooms[i][w] = null;
 												}
