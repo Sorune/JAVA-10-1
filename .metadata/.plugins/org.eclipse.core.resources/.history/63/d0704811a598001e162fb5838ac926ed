@@ -1,0 +1,240 @@
+package ch06;
+
+import java.util.Scanner;
+
+
+public class ReservationSystem {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		//날짜 배열 만들기 위한 월별 일수 배열
+		int[] month = {31,28,31,30,31,30,31,31,30,31,30,31};
+		String[][] calander = new String[12][];
+		for (int i = 0 ; i < calander.length ; i ++) {
+			calander[i] = new String[month[i]];
+		}
+		//방 정보 배열 만들기
+		String[][] rooms = new String[6][];
+		for (int i = 0 ; i < rooms.length ; i ++) {
+			int count = 8;
+			if (i==0) count = 5;
+			rooms[i] = new String[count];
+		}
+		//유저 정보 배열 만들기
+		
+		String[][] users = new String[100][5];
+		// 0 : 이름 1 : 연락처 2 : 예약 날짜 정보 4 : 예약 호실 정보 5 : 확인용 비밀번호 
+		
+		showResInfo(rooms);
+		
+		
+		
+		String t = "607";
+		int i = Integer.parseInt(t.substring(0, 1));
+		int j = Integer.parseInt(t.substring(t.length()-1, t.length()));
+		System.out.println(i);
+		System.out.println(j);
+		System.out.println(rooms[i-1][j-1]);
+		
+		String[] test;
+		String t1 = "0,0,0,0,0,7,0,0";
+		test = t1.split(",");
+		for (int k = 0 ; k < test.length ; k++) {
+			System.out.printf("[%s]",test[k]);
+		}
+		
+		System.out.println();
+		
+		String t2 = "";
+		for (int k = 0 ; k < rooms.length ; k ++) {
+			for (int z = 0 ; z < rooms[k].length ; z++) {
+				t2 += rooms[k][z];
+				t2 += ",";
+			}
+			t2 += "/";
+		}
+		
+		System.out.println(t2);
+		
+		String [][] tt1 = new String[rooms.length][];
+		String [] tt2 = t2.split("/");
+		for (int k = 0 ; k <tt1.length ; k ++) {
+			tt1[k] = tt2[k].split(",");
+		}
+		
+		System.out.println();
+		showResInfo(tt1);
+	}
+	
+	public static void showResInfo(String[][] rooms) {
+		for (int i = rooms.length ; i > 0 ; i --) {
+			for (int j = 0 ; j<rooms[i-1].length;j++) {
+				if (rooms[i-1][j]==null||rooms[i-1][j].equals("0")||rooms[i-1][j].isBlank()||rooms[i-1][j].isEmpty()) {
+					System.out.printf("[%03d]",(i*100)+(j+1));
+				} else {
+					System.out.printf("[ x ]");
+				}
+			}
+			System.out.println();
+		}
+	}
+	
+	public static String[][] getResInfo(String t, String[][]rooms){
+		
+		String [][] tt1 = new String[rooms.length][];
+		String [] tt2 = t.split("/");
+		for (int k = 0 ; k <tt1.length ; k ++) {
+			tt1[k] = tt2[k].split(",");
+		}
+		rooms = tt1;
+		return rooms;
+	}
+	
+	public static String[][] saveUserRes (String[][] rooms, String roomNum, int id){
+		int i = Integer.parseInt(roomNum.substring(0, 1));
+		int j = Integer.parseInt(roomNum.substring(roomNum.length()-1, roomNum.length()));
+		rooms[i-1][j-1] = Integer.toString(id);
+		return rooms;
+	}
+
+	public static String[][] reservationGenerator(String[][] idArray){
+		Scanner in = new Scanner(System.in);
+		boolean accountCreate = false;
+		int count = 0;
+		for (int i = 0; i < idArray.length ; i ++) {
+			if (idArray[i][0]==null || idArray[i][0].isEmpty() || idArray[i][0].isBlank()) {
+				count++;
+			}
+		}
+		for (int i = 0 ; i < idArray.length ; i ++) {
+			if (idArray[i][0]==null ||idArray[i][0].isEmpty() || idArray[i][0].isBlank()) {
+				//이름 생성
+				System.out.println("예약자의 이름을 입력하세요");
+				System.out.print(">>> ");
+				idArray[i][0] = in.next();
+				
+				//연락처 입력
+				
+				
+				//예약 날짜
+				
+				
+				
+				//
+				
+				// 비밀번호 생성
+				boolean checkProcess = true;
+				do {
+				
+				System.out.println("사용할 PASSWORD릅 입력하세요");
+				System.out.print(">>> ");
+				String checkPass = in.next();
+				System.out.println("PASSWORD릅 한번 더 입력하세요");
+				System.out.print(">>> ");
+				String tmp = in.next();
+				
+				if (tmp.equals(checkPass)) {
+					idArray[i][5] = checkPass;
+					checkProcess = false;
+					accountCreate = true;
+					break;
+				} else {
+					System.out.println("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+				}
+				} while (checkProcess);
+			}
+			if(accountCreate) {
+				System.out.println("예약자 정보 생성이 완료되었습니다.");
+				break;
+				}
+			
+		}
+	return idArray;
+	}
+
+	public static String checkResInfo(String[][] idArray) {
+		boolean isLogin = false;
+		Scanner in = new Scanner(System.in);
+		int count = 0 , index = 0 ;
+		String checkPASS ="", indexID="";
+		do {
+			
+			System.out.println("이름를 입력하세요");
+			System.out.print(">>> ");
+			String checkID = in.next();
+			if (checkID == null || checkID.isBlank() || checkID.isEmpty()) {
+				System.out.println("잘못 입력하셨습니다.");
+			} else {
+					
+					for (int i = 0; i<idArray.length ; i ++ ) {
+						if(idArray[i][0].equals(checkID)) {
+							do {
+								System.out.println("PASSWORD를 입력하세요.");
+								System.out.print(">>> ");
+								checkPASS = in.next();
+								count++;
+								if (idArray[i][0].equals(checkID) && idArray[i][1].equals(checkPASS)) {
+									isLogin = true;
+									index = i;
+								}
+								
+								if(count>5) break;
+							} while (!checkPASS.equals(idArray[i][1]));
+							
+							break;
+						}
+					}
+					
+					if (!isLogin) {
+						System.out.println("예약자 정보가 확인되지 않았습니다.");
+						System.out.println("예약 정보를 다시 확인해 주세요.");
+						indexID = "0";
+					} else {
+						indexID = Integer.toString(index);
+					}
+					count++;
+			}
+		} while (!isLogin && count < 5);
+		
+	return indexID;
+	}
+
+	public static String[][] deleteAccount(String[][] idArray){
+		Scanner in = new Scanner(System.in);
+		int count = 0 ;
+		for (int i = 1 ; i < idArray.length ; i ++) {
+			if(idArray[i][0]==null) {
+				count ++;
+			}
+		}
+		
+		if (count == idArray.length-1) {
+			System.out.println("삭제할 예약정보가 없습니다.");
+		}else {
+			System.out.println("삭제할 계정을 선택해 주세요.");
+			
+			if (count <10)
+			for (int i = 1 ; i < idArray.length ; i ++) {
+				if(idArray[i][0]==null) {
+					break;
+				} else {
+					System.out.printf("%d. %s\t",i+1,idArray[i][0]);
+				}
+			}
+			System.out.println();
+			System.out.print(">>> "); 
+			int delNum = in.nextInt()-1;
+			if (delNum<0||delNum>idArray.length) {
+				System.out.println("잘못된 번호입니다.");
+				System.out.println("메인메뉴로 돌아갑니다.");
+			}else {
+				System.out.printf("선택한 아이디 %s를 삭제합니다.\n",idArray[delNum][0]);
+				idArray[delNum][0] =null;
+				idArray[delNum][1] =null;
+			}
+		}
+		return idArray;
+	}
+	
+}
+

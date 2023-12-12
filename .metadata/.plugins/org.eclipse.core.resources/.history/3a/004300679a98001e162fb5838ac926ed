@@ -1,0 +1,38 @@
+package ch06;
+
+import java.util.Scanner;
+
+
+public class ReservationSystem {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		//날짜 배열 만들기 위한 월별 일수 배열
+		int[] month = {31,28,31,30,31,30,31,31,30,31,30,31};
+		int[][] calander = new int[12][];
+		for (int i = 0 ; i < calander.length ; i ++) {
+			calander[i] = new int[month[i]];
+		}
+		
+		int[][] rooms = new int[6][];
+		for (int i = 0 ; i < rooms.length ; i ++) {
+			int count = 8;
+			if (i==0) count = 5;
+			rooms[i] = new int[count];
+		}
+		
+		
+		int count = 1;
+		for (int i = 0 ; i < rooms.length ; i ++) {
+			for (int j = 0 ; j<rooms[i].length;j++) {
+				count ++;
+				System.out.printf("[ %02d. %03d]",count,((i+1)*100)+(j+1));
+				rooms[i][j] = ((i+1)*100)+(j+1);
+			}
+			System.out.println();
+		}
+		System.out.println((45-1)%8);
+		System.out.println((45-1)/8);
+		System.out.println(rooms[(45-1)%8][(45-1)/8]);
+	}
+}
+
