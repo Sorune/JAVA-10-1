@@ -16,7 +16,7 @@ final class ResInfo {
 	public int[][] calander = new int[12][];
 	//예약자 정보를 담을 배열
 	public String[][] whoIs;
-	// 0 : 이름 1 : 연락처 2 : 예약 날짜 정보 4 : 예약 호실 정보 5 : 확인용 비밀번호
+	// 0 : 이름 1 : 연락처 2 : 예약 날짜 정보 4 : 예약 호실 정보 5 : 확인용 비밀번호 
 }
 
 public class Dummy {
