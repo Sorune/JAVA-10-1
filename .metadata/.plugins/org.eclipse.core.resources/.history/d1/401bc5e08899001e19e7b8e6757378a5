@@ -1,0 +1,12 @@
+package ch07;
+
+import ch07.Circle;
+
+public class CircleExam {
+	public static void main(String[] args) {
+		Circle circle = new Circle();
+		circle.name = "원";
+		circle.radius = 5;
+		System.out.println(circle.getArea());
+	}
+}

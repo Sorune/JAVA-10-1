@@ -1,0 +1,11 @@
+package ch07;
+
+import ch07.Week;
+
+public class EnumWeekExam {
+	public static void main(String[] args) {
+		Week todya = Week.WEDNESDAY;
+		
+		System.out.println(today);
+	}
+}

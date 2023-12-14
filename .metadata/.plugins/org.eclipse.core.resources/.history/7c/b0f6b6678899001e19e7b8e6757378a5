@@ -1,0 +1,10 @@
+package ch07;
+
+import ch07.Circle;
+
+public class CircleExam {
+	public static void main(String[] args) {
+		Circle circle = new Circle();
+		System.out.println(circle.getArea());
+	}
+}
