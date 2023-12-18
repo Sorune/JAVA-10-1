@@ -1,0 +1,18 @@
+package ch07;
+
+public class CarRunGasExam {
+	public static void main(String[] args) {
+		CarRunGas myCar = new CarRunGas();
+		
+		myCar.setGas(50);
+		myCar.isLeftGas();
+		
+		while (myCar.isLeftGas()) {
+			if (myCar.isLeftGas()) {
+				if(myCar.gas <= 3) {
+					System.out.println("가스가 모자랍니다. 주유소로 갈까요?");
+				}
+			}
+		}
+	}
+}

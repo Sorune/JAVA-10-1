@@ -1,0 +1,17 @@
+package ch07;
+
+public class CarRunGasExam {
+	public static void main(String[] args) {
+		CarRunGas myCar = new CarRunGas();
+		
+		myCar.setGas(50);
+		myCar.isLeftGas();
+		
+		myCar.run();
+		myCar.run();
+		myCar.run();
+		myCar.run();
+		myCar.run();
+		myCar.run();
+	}
+}

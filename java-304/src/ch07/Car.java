@@ -7,6 +7,7 @@ public class Car {
 	String model = "Mustang";
 	String color = "Black";	
 	int maxSpeed = 320;
+	int oil;
 	
 	//-----------상태-----------
 	int speed;
@@ -32,6 +33,7 @@ public class Car {
 		this.handbreak = true;
 	}
 	
+
 	Car(String company, String model, String color){
 		this.company =company;
 		this.model = model;
