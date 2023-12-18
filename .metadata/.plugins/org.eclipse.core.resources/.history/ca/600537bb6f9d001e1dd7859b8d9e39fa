@@ -1,0 +1,18 @@
+package ch07;
+
+public class CalculatorStaticExam {
+	public static void main(String[] args) {
+		// 정적 메서드를 호출하는 주 메서드
+		CalculatorStatic myCalc = new CalculatorStatic(); //인스턴스용
+		
+		double result1 = 10*10*myCalc.pi;
+		
+		System.out.println(result1);
+		
+		// 인스턴스 없이 바로 실행
+		
+		double result2 = 10*10*CalculatorStatic.pi;
+		
+		System.out.println(result2);
+	}
+}
