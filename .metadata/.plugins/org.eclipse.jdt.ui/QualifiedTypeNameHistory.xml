@@ -3,8 +3,13 @@
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="ch04.ScannerStringExam"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="javax.print.attribute.standard.MediaSize.Engineering"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="ch07.CalculatorStatic"/>
+    <fullyQualifiedTypeName name="ch08.hankook.Tire"/>
+    <fullyQualifiedTypeName name="ch08.hyundae.Engine"/>
+    <fullyQualifiedTypeName name="ch08.kumho.Tire"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="ch08.getter_setter.Reg"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>

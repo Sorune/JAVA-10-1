@@ -1,0 +1,7 @@
+package ch07;
+
+public class AnimalCat {
+	String name;
+	String color;
+	int age;
+}
