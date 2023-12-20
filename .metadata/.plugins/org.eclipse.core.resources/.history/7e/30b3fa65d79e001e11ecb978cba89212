@@ -1,0 +1,7 @@
+package ch08.bank;
+
+public class Account {
+	private String ano;
+	private String owner;
+	private int balance;
+}

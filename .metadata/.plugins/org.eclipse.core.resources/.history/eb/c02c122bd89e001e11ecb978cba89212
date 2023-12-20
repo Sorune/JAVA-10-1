@@ -1,0 +1,14 @@
+package ch08.bank;
+
+import java.util.Scanner;
+
+public class BankExam {
+
+	private static Account[] accountArr = new Account[100];
+	private static Scanner in = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

@@ -1,0 +1,20 @@
+package ch08.bank;
+
+import java.util.Scanner;
+
+public class BankExam {
+
+	private static Account[] accountArr = new Account[100];
+	private static Scanner in = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		boolean run = true; //메뉴용 변수
+		while(run) {
+			System.out.println("-------------------------------------------------");
+			System.out.println("1. 계좌 생성 | 2.계좌 목록 | 3. 예금 | 4. 출금 | 5. 종료 ");
+			System.out.println("-------------------------------------------------");
+		} // while문 종료(메뉴용)
+		
+	}
+	
+}
