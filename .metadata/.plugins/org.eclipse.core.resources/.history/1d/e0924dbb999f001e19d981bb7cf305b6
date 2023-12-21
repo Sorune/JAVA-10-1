@@ -40,7 +40,7 @@ public class BankExam {
 		} // while문 종료(메뉴용)
 		
 	}
-
+	
 	private static void minAccountBalance(int selectNum) {
 		// TODO Auto-generated method stub
 		System.out.println("---------------------예금 출금---------------------");
