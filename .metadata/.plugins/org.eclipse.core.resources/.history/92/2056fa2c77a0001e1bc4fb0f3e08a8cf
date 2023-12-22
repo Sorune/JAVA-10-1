@@ -1,0 +1,72 @@
+package ch09.extended.phone;
+
+public class SmartPhone extends DmbPhone {
+	private String[] application;
+	private String Music;
+	private String[][] sms;
+	private String[] adress;
+	
+	SmartPhone(){
+		super("이젠폰","실버",10);
+		this.application = new String[100];
+		this.application[0] = "Call";
+		this.application[1] = "DMB";
+		this.application[2] = "AppMarket";
+		this.sms = new String[100][100];
+		this.adress = new String [100];
+	}
+	
+	SmartPhone(String phone, String color){
+		super(phone,color,0);
+		this.application = new String[100];
+		this.application[0] = "Call";
+		this.application[1] = "DMB";
+		this.sms = new String[100][100];
+		this.adress = new String [100];
+	}
+
+	public String[] getApplication() {
+		return application;
+	}
+
+	public String getMusic() {
+		return Music;
+	}
+
+	public String[][] getSms() {
+		return sms;
+	}
+
+	public String[] getAdress() {
+		return adress;
+	}
+
+	public void setApplication(String application) {
+		for (int i = 3 ; i < this.application.length ; i ++) {
+			if(this.application[i]== null) {
+				this.application[i] = application;
+				break;
+			}
+		}
+	}
+
+	public void setMusic(String music) {
+		Music = music;
+	}
+
+	public void setSms(String[][] sms) {
+		this.sms = sms;
+	}
+
+	public void setAdress(String[] adress) {
+		this.adress = adress;
+	}
+	
+	public void showApplicationList() {
+		for (int i = 0 ; i < this.application.length ; i ++) {
+			if (this.application[i] == null) break;
+			System.out.printf("%d. %s\n",i+1,this.application[i]);
+		}
+	}
+	
+}

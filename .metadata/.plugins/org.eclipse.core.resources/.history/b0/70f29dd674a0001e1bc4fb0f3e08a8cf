@@ -1,0 +1,24 @@
+package ch09.extended.phone;
+
+public class MyPhoneExam {
+	public static void main(String[] args) {
+		//phone 객체 활용 메서드
+		DmbPhone cp = new DmbPhone("이젠폰","핑크",10);
+		
+		cp.powerOn(); // 부모 메서드
+		System.out.println("환영합니다. " + cp.model);
+		System.out.println("색상 : "+cp.color);
+		cp.bell();
+		cp.sendVoice("여보세요");
+		cp.receiveVoice("안녕하세요");
+		cp.sendVoice("반갑습니다.");
+		cp.receiveVoice("테스트 종료합니다.");
+		cp.hangUp();
+		System.out.println("------부모 메서드-------");
+		cp.turnOnDmb();
+		cp.changeChannelDmb(6);
+		cp.turnOffDmb();
+		System.out.println("------자식 메서드-------");
+		
+	}
+}

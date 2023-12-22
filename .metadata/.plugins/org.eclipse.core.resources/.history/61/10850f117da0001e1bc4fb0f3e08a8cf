@@ -1,0 +1,18 @@
+package ch09.extended.phone;
+
+public class SmartPhoneExam {
+	public static void main(String[] args) {
+		SmartPhone sp = new SmartPhone("사과폰", "스페이스 그레이");
+		
+		sp.powerOn();
+		
+		sp.musicStart("Cookie");
+		sp.musicStart("손오공");
+		sp.musicStart("Beliver");
+		sp.randomMusicStart();
+		sp.randomMusicStart();
+		sp.randomMusicStart();
+	}
+	
+
+}
