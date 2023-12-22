@@ -1,0 +1,13 @@
+package ch09.extended;
+
+public class ExtendedChildExam extends ExtendedTest {
+	
+	int 필드3;
+	
+	
+	void 메서드3() {}
+	
+	public static void main(String[] args) {
+		
+	}
+}
