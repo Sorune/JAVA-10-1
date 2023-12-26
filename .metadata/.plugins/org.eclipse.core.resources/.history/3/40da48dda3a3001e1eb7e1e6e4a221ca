@@ -1,0 +1,15 @@
+package ch09.extended.promotion.car;
+
+public class CarExam {
+	public static void main(String[] args) throws InterruptedException {
+		//자동차 주행 및 타이어 교환 코드
+		
+		
+		
+		Car myCar = new Car();
+		while(true) {
+			Thread.sleep(500);
+			myCar.run();
+		}
+	}
+}

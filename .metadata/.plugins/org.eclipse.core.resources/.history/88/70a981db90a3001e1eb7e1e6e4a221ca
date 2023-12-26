@@ -1,0 +1,11 @@
+package ch09.extended.override;
+
+public class OverrideExam {
+	public static void main(String[] args) {
+		Calculator ca = new Calculator();
+		Computer cu = new Computer();
+		
+		System.out.println(ca.areaCircle(3));
+		System.out.println(cu.areaCircle(3));
+	}
+}

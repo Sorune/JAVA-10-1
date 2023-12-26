@@ -1,0 +1,24 @@
+package ch09.extended.promotion.car;
+
+public class HankookTire extends Tire{
+	// 필드 -> 부모 필드 + @
+	public int maxSpeed;
+	public int size;
+	public int radius;
+	
+	
+	public HankookTire(String location, int maxRotation) {
+		super(location, maxRotation);
+		//부모 객체 생성자
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean roll() {
+		// TODO Auto-generated method stub
+		return super.roll();
+	}
+	
+	
+	
+}

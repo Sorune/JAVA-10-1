@@ -1,0 +1,14 @@
+package ch09.extended.override.airplain;
+
+public class Plain {
+	public static void main(String[] args) {
+		SuperSonicAirplain sa = new SuperSonicAirplain();
+		
+		sa.takeoff();
+		sa.fly();
+		
+		sa.mode = sa.SUPERSONIC;
+		
+		sa.fly();
+	}
+}

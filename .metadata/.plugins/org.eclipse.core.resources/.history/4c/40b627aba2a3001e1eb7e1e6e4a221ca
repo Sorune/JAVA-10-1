@@ -1,0 +1,13 @@
+package ch09.extended.promotion.car;
+
+public class Car {
+	//필드
+	Tire frontLeft = new Tire("FrontLeft",10);
+	Tire frontRight = new Tire("FrontRight",12);
+	Tire rearLeft = new Tire("RearLeft",15);
+	Tire rearRight = new Tire("RearRight",17);
+	//생성자
+	
+	
+	//메서드
+}

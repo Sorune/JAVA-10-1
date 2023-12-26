@@ -1,0 +1,7 @@
+package ch09.extended.promotion.exam;
+
+public class Parents {
+	
+	void method1() {}
+	void method2() {}
+}

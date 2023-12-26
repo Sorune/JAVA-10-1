@@ -1,0 +1,7 @@
+package ch09.extended.promotion.exam;
+
+public class Child extends Parents{
+	@Override
+	void method2() {}
+	void method3() {}
+}
