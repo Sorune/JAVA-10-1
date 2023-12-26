@@ -1,0 +1,9 @@
+package ch09.extended.casting;
+
+public class ChildExam {
+	public static void main(String[] args) {
+		//강제 타입 변환 실습
+		Parent pr = new Child();
+		
+	}
+}
