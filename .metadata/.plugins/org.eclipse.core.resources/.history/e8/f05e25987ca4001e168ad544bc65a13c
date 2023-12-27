@@ -1,0 +1,21 @@
+package ch09.extended.abstractexam.overriding;
+
+public abstract class Animal {//추상메서드(조장이 만듦)
+	//필드
+	public String kind;
+	
+	
+	
+	
+	//생성자
+	public Animal() {};
+	
+	
+	
+	
+	//메서드
+	public void sound() {
+		System.out.println();
+	}
+
+}

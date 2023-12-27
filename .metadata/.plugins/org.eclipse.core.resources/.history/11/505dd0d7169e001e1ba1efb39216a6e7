@@ -1,6 +1,0 @@
-package ch08.exam01.package1;
-
-public class B {  //public 접근제한
-	//public은 아무나 모두 접근 가능
-	A a = new A();
-}

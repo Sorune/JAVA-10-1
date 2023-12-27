@@ -1,7 +1,0 @@
-package ch08.getter_setter;
-
-public class CarExam {
-	Car myCar = new Car();
-	myCar.setSpeed(50);
-	
-}

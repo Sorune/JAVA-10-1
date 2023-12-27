@@ -1,9 +1,0 @@
-package ch07;
-
-public class CalculatorExam {
-	public static void main(String[] args) {
-		Calculator myCal = new Calculator();
-		
-		System.out.println(myCal.add(12.5, 0.5));
-	}
-}

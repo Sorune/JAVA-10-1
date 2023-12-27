@@ -10,6 +10,17 @@
     <fullyQualifiedTypeName name="ch08.kumho.Tire"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="ch08.getter_setter.Reg"/>
+    <fullyQualifiedTypeName name="ch07.Cal"/>
+    <fullyQualifiedTypeName name="ch09.extended.override.Computer"/>
+    <fullyQualifiedTypeName name="ch09.extended.override.Calculator"/>
+    <fullyQualifiedTypeName name="ch09.extended.override.airplain.Airplain"/>
+    <fullyQualifiedTypeName name="ch09.extended.override.airplain.SuperSonicAirplain"/>
+    <fullyQualifiedTypeName name="ch09.extended.promotion.exam.Parents"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="ch09.extended.promotion.car.HankookTire"/>
+    <fullyQualifiedTypeName name="ch09.extended.promotion.car.KumhoTire"/>
+    <fullyQualifiedTypeName name="ch09.extended.promotion.vehicle.Vehicle"/>
+    <fullyQualifiedTypeName name="ch09.extended.casting.Parent"/>
 </qualifiedTypeNameHistroy>
