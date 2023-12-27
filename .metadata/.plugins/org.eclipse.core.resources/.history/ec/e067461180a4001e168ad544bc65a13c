@@ -1,0 +1,20 @@
+package ch09.extended.abstractexam.overriding;
+
+public class AnimalExam {
+	public static void main(String[] args) {
+		Cat cat = new Cat();
+		Dog dog = new Dog();
+		System.out.println(cat.kind);
+		cat.sound();
+		System.out.println(dog.kind);
+		dog.sound();
+		Animal an = null;
+		an = new Cat();
+		System.out.println(an.kind);
+		an.sound();
+		an = new Dog();
+		System.out.println(an.kind);
+		an.sound();
+		Dog dog2 = (Dog)an;
+	}
+}
