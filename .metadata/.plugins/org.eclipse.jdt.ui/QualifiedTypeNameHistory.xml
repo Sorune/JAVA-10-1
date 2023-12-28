@@ -18,9 +18,9 @@
     <fullyQualifiedTypeName name="ch09.extended.promotion.exam.Parents"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="ch09.extended.promotion.car.HankookTire"/>
     <fullyQualifiedTypeName name="ch09.extended.promotion.car.KumhoTire"/>
     <fullyQualifiedTypeName name="ch09.extended.promotion.vehicle.Vehicle"/>
     <fullyQualifiedTypeName name="ch09.extended.casting.Parent"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

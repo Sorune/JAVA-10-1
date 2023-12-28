@@ -1,0 +1,24 @@
+package ch09.interfaceexam.car;
+
+public class Car {
+	static Tire[] tires = new Tire[5];
+	
+	public static void main(String[] args) {
+		tires[0] = new HankookTire();
+		tires[1] = new KumhoTire();
+		tires[2] = new HankookTire();
+		tires[3] = new KumhoTire();
+		tires[4] = new Tire() {
+
+			@Override
+			public void roll() {
+				System.out.println("비상용 스페어 타이어 입니다.");
+				
+			}
+			
+		};
+		for (int i = 0 ; i < tires.length ; i ++) {
+			tires[i].roll();
+		}
+	}
+}
