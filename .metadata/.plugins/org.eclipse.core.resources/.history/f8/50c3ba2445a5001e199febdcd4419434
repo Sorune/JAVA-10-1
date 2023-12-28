@@ -1,0 +1,7 @@
+package ch09.interfaceexam.bird;
+
+public interface flyable {
+	public void up();
+	public void down();
+	public void hobbering();
+}

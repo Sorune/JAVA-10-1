@@ -1,0 +1,10 @@
+package ch09.interfaceexam.vehicle;
+
+public class VehicleExam {
+	public static void main(String[] args) {
+		Driver d = new Driver();
+		Bus bus = new Bus();
+		Texi texi = new Texi();
+		d.run(bus);
+	}
+}

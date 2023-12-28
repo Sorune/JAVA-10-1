@@ -1,0 +1,14 @@
+package ch09.interfaceexam.vehicle;
+
+import java.util.Scanner;
+
+public class VehicleExam {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Driver d = new Driver();
+		Bus bus = new Bus();
+		Texi texi = new Texi();
+		d.run(bus);
+		d.run(texi);
+	}
+}
