@@ -22,5 +22,7 @@
     <fullyQualifiedTypeName name="ch09.extended.promotion.car.KumhoTire"/>
     <fullyQualifiedTypeName name="ch09.extended.promotion.vehicle.Vehicle"/>
     <fullyQualifiedTypeName name="ch09.extended.casting.Parent"/>
+    <fullyQualifiedTypeName name="ch09.interfaceexam.RemoteControl"/>
+    <fullyQualifiedTypeName name="ch09.interfaceexam.vehicle.Vehicle"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>
