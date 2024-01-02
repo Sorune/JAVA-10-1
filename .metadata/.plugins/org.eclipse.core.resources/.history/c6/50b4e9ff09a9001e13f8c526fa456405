@@ -1,0 +1,12 @@
+package ch09.nestedclass;
+
+public class AExam {
+	public static void main(String[] args) {
+		// 이너 클래스
+		A a = new A();
+		A.B.field2 = 50;
+		A.B.method2();
+		B a.b = new B();
+		a.B.field1 = 10;
+	}
+}

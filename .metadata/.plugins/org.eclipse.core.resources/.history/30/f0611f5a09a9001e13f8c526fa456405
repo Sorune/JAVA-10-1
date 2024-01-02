@@ -1,0 +1,26 @@
+package ch09.nestedclass;
+
+public class A {
+	//new 연산자를 사용해야 하는 인스턴스(객체)
+	//필드
+	public class B {
+		//필드
+		int field1;
+		static int field2; //17버전 이후로 가능
+		
+		//생성자
+		B(){}
+		
+		
+		//메서드
+		void method1() {}
+		static void method2() {}
+	}//내부 클래스(이너 클래스)
+	
+	
+	//생성자
+	
+	
+	
+	//메서드
+}
