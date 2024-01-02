@@ -1,0 +1,22 @@
+package ch10.clientexception;
+
+public class Account {
+	//필드
+	private long balance ; //잔액
+	
+	
+	//생성자
+	public Account() {
+		
+	}
+	
+	
+	//메서드
+	public long getBalance() {
+		return balance;
+	}//잔액 조회
+	
+	public void deposit(int money) {
+		this.balance += money;
+	}
+}

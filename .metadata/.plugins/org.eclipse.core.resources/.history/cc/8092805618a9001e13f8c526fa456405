@@ -1,0 +1,12 @@
+package ch10.trycatch;
+
+public class MultiCatchExam {
+	public static void main(String[] args) {
+		//catch 블록은 여러개 가능
+		
+		String data1 = null;
+		String data2 = null;
+		data1 = args[0];
+		data2 = args[1];
+	}
+}

@@ -1,0 +1,10 @@
+package ch10.trycatch;
+
+public class TryWithExam {
+	public static void main(String[] args) {
+		FileInputStExam file = new FileInputStExam("Hello.txt");
+		
+		file.read();
+		file.close();
+	}
+}

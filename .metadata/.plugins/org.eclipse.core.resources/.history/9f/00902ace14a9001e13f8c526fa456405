@@ -1,0 +1,7 @@
+package ch10.trycatch;
+
+public class TryCatchFinallyExam {
+	public static void main(String[] args) {
+		
+	}
+}

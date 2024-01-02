@@ -1,0 +1,29 @@
+package ch10.trycatch;
+
+public class MultiCatchExam {
+	public static void main(String[] args) {
+		//catch 블록은 여러개 가능
+		
+		try {
+			String data1 = null;
+			String data2 = null;
+			data1 = args[0];
+			data2 = args[1];
+			//argments 값이 2개가 아닐때
+			
+			int value1 = Integer.parseInt(data1);
+			int value2 = Integer.parseInt(data2);
+			int result = value1 + value2;
+			System.out.printf("%d + %d = %d\n",value1,value2,result);
+		} catch (ArrayIndexOutOfBoundsException | NumberFormatException | NullPointerException e) {
+			// TODO Auto-generated catch block
+			System.out.println("실행 매개 값이 부족하거나 정수형이 아닙니다.");
+			System.out.println("arguments에 2개의 숫자(정수)를 넣어주세요.");
+		} catch (Exception e) {
+			System.out.println("예외가 발생했습니다.");
+		} finally {
+			System.out.println("다시 실행은 ctrl+f11을 눌러주세요");
+		}
+		
+	}
+}

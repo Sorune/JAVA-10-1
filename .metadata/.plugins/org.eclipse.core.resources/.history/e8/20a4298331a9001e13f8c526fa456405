@@ -1,0 +1,15 @@
+package ch10.clientexception;
+
+public class Account {
+	//필드
+	private balance ; //잔액
+	
+	
+	//생성자
+	public Account() {
+		
+	}
+	
+	
+	//메서드
+}

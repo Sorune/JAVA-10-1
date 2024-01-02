@@ -1,0 +1,16 @@
+package ch10.trycatch;
+
+public class FileInputStExam {
+	//필드
+	private String file;
+	
+	//생성자
+	public FileInputStExam(String file) {
+		this.file = file;
+	}
+	//메서드
+	
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,28 @@
+package ch10.trycatch;
+
+import java.util.Scanner;
+
+public class TryCatchExam {
+	static Scanner in = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		//예외 처리 실습
+		//try => 예외 발생 가능성 있는 코드
+		//catch => 예외 발생시 처리 블럭
+		//final => 항상 실행
+		try {
+			Class clazz1 = Class.forName("java.lang.String2");
+			System.out.println("해당하는 클래스가 존재합니다.");
+		}
+		catch(NullPointerException e) {
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("해당하는 클래스가 존재하지 않습니다.");
+//			e.printStackTrace();
+//			e.getCause();
+		} finally {
+			System.out.println("프로그램이 정상 종료되었습니다.");
+		}
+	}
+}

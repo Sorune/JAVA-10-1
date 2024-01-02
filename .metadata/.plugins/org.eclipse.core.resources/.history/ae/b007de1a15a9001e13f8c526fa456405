@@ -1,0 +1,27 @@
+package ch10.trycatch;
+
+import java.util.Scanner;
+
+public class TryCatchFinallyExam {
+	
+	static Scanner in = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		String data1 = null;
+		String data2 = null;
+		try {
+			System.out.println("------------------------------");
+			System.out.println("숫자 2개를 입력하세요");
+			System.out.print("숫자 1(정수) : ");
+			data1 = in.next();
+			System.out.println("숫자 2(실수) :" );
+			data2 = in.next();
+			
+			int numData = Integer.parseInt(data1);
+			double dobData = Double.parseDouble(data2);
+		} catch (NumberFormatException e) {
+			
+		}
+		
+	}
+}

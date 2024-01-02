@@ -1,0 +1,5 @@
+package ch10.clientexception;
+
+public class NotExistIdException {
+
+}
