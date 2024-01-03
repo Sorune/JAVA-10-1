@@ -1,0 +1,22 @@
+package ch12.threadtest.beep;
+
+import java.awt.Toolkit;
+
+public class BeepMainExam {
+	public static void main(String[] args) throws InterruptedException {
+		// 스레드 없는 소리와 자막 연출하기
+		
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		for(int i = 0 ; i < 10 ; i ++) {
+			tk.beep();
+			System.out.println("beep음이 울립니다.");
+			Thread.sleep(1000);
+		}
+		
+		for(int i = 0 ; i < 10 ; i ++) {
+			System.out.println("띠리링~");
+			
+			Thread.sleep(1000);
+		}
+	}
+}

@@ -1,7 +1,0 @@
-package ch09.extended.promotion.exam;
-
-public class ChildExam {
-	public static void main(String[] args) {
-		
-	}
-}

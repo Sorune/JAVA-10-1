@@ -1,0 +1,9 @@
+package ch12.threadtest;
+
+public class TestExam {
+	public static void main(String[] args) {
+		Runnable tk = new Task();
+		
+		Thread th = new Thread(tk);
+	}
+}

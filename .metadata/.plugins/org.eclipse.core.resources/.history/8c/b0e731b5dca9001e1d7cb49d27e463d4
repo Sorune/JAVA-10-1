@@ -1,0 +1,8 @@
+package ch12.threadtest;
+
+public class TestExam {
+	public static void main(String[] args) {
+		Task th1 = new Task();
+		th1.run();
+	}
+}

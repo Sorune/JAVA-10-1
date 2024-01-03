@@ -24,5 +24,15 @@
     <fullyQualifiedTypeName name="ch09.extended.casting.Parent"/>
     <fullyQualifiedTypeName name="ch09.interfaceexam.RemoteControl"/>
     <fullyQualifiedTypeName name="ch09.interfaceexam.vehicle.Vehicle"/>
+    <fullyQualifiedTypeName name="ch09.nestedclass.A.B"/>
+    <fullyQualifiedTypeName name="ch09.nestedclass.A.C"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="java.lang.AutoCloseable"/>
+    <fullyQualifiedTypeName name="ch10.trycatch.FileInputStExam"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="ch10.clientexception.NotExistIdException"/>
+    <fullyQualifiedTypeName name="ch10.clientexception.WrongPasswordException"/>
 </qualifiedTypeNameHistroy>
