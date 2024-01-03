@@ -2,17 +2,14 @@ package ch12.threadtest.beep;
 
 import java.awt.Toolkit;
 
-public class BeepMainExam {
-	public static void main(String[] args){
-		// 스레드 없는 소리와 자막 연출하기
-		BeepTask bk = new BeepTask();
-		Thread th = new Thread(bk);
-		th.start();
+public class BeepTask implements Runnable {
 
-		
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		Toolkit tk = Toolkit.getDefaultToolkit();
 		for(int i = 0 ; i < 10 ; i ++) {
-			System.out.println("띠리링~");
-			
+			tk.beep();
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -21,4 +18,5 @@ public class BeepMainExam {
 			}
 		}
 	}
+
 }

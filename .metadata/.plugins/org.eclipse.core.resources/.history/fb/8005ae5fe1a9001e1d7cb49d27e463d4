@@ -1,0 +1,5 @@
+package ch12.threadtest.beep;
+
+public class BeepTask {
+
+}

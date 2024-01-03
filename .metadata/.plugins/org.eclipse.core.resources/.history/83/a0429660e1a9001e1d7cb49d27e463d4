@@ -5,10 +5,18 @@ import java.awt.Toolkit;
 public class BeepMainExam {
 	public static void main(String[] args){
 		// 스레드 없는 소리와 자막 연출하기
-		BeepTask bk = new BeepTask();
-		Thread th = new Thread(bk);
-		th.start();
-
+		
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		for(int i = 0 ; i < 10 ; i ++) {
+			tk.beep();
+			System.out.println("beep음이 울립니다.");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		for(int i = 0 ; i < 10 ; i ++) {
 			System.out.println("띠리링~");
