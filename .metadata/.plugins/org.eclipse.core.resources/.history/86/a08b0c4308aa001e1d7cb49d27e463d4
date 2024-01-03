@@ -1,0 +1,13 @@
+package ch14.list;
+
+import java.util.List;
+import java.util.Vector;
+
+public class VectorExam {
+	public static void main(String[] args) {
+		//벡터는 멀티스레드 환경에서 동기화된 메서드로 구현
+		//동시에 여러명이 수정할 수 없다.
+		List<Board> list = new Vector<Board>();
+		
+	}
+}

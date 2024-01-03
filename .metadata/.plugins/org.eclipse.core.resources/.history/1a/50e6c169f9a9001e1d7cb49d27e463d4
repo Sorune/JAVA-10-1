@@ -1,0 +1,14 @@
+package ch12.generic;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class BoxExam {
+	public static void main(String[] args) {
+		Box box = new Box();
+		
+		ArrayList arr1 = new ArrayList();
+		
+		HashMap hash = new HashMap();
+	}
+}

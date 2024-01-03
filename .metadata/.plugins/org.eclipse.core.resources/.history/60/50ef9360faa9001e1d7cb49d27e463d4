@@ -1,0 +1,25 @@
+package ch12.generic;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class BoxExam {
+	public static void main(String[] args) {
+		Box box = new Box();
+		box.set("홍길동");
+		String name = (String) box.get();
+		
+		box.set(11);
+		int number = (int) box.get();
+		double db = (double) box.get();
+		
+		box.set(new Apple());
+		Apple a = (Apple) box.get();
+		
+		
+		
+		ArrayList arr1 = new ArrayList();
+		
+		HashMap hash = new HashMap();
+	}
+}

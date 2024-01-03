@@ -1,0 +1,11 @@
+package ch12.generic;
+
+public class Box {
+	private Object object; //필드 / 최상위 객체
+	
+	public void set(Object object) {
+		this.object = object;
+	}
+	
+	
+}

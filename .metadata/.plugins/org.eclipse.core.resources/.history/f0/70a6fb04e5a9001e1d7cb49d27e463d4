@@ -1,0 +1,9 @@
+package ch12.share;
+
+public class ShareExam {
+	public static void main(String[] args) {
+		Calculator cal = new Calculator();
+		User1 user1 = new User1();
+		User2 user2 = new User2();
+	}
+}

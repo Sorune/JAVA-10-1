@@ -1,0 +1,18 @@
+package ch12.share;
+
+public class Calculator {
+	private int memory;
+	
+	
+	public Calculator(int memonry) {
+		this.memory = memory;
+	}
+	
+	public int getMemory(){
+		return this.memory;
+	}
+	
+	public void setMemory(int memory) {
+		
+	}
+}
