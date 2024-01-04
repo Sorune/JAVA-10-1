@@ -1,0 +1,35 @@
+package ch14.list.set;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class HashSetExam {
+	public static void main(String[] args) {
+		//Set 컬렉션은 구슬주머니처럼 index 가 없는 객체들이 들어 있다.
+		//객체를 찾을 때 반복적으로 찾는 iterator를 활용 필수
+		//들어갈 때 객체와 나올 대 객체의 순서는 랜덤이다
+		//HashSet은 이미 저장되어 있는 객체들의 해시코드를 비교
+		//Set은 동일 객체가 들어갈 수 없다.
+		
+		Set<String> set = new HashSet<String>();
+		
+		set.add("Java");
+		set.add("JDBC");
+		set.add("Serverlet/JSP");
+		set.add("Java");
+		set.add("MyBatis");
+		
+		int size = set.size();
+		
+		System.out.println(size);
+		
+		//전체 객체 출력
+		System.out.println("-------------------------");
+		 Iterator<String> it = set.iterator();
+		 while(it.hasNext()) {
+			 System.out.println(it.next());
+		 }
+		
+		}
+}

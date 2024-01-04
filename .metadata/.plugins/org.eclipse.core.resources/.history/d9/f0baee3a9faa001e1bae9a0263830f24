@@ -1,7 +1,6 @@
 package ch14.list;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
@@ -12,7 +11,7 @@ public class VectorExam {
 		//동시에 여러명이 수정할 수 없다.
 		Scanner in = new Scanner(System.in);
 		
-		List<Board> list = new LinkedList<Board>();
+		List<Board> list = new ArrayList<Board>();
 		
 		for (int i = 1 ; i < 7 ; i ++) {
 			list.add(new Board(String.format("제목%d",i),String.format("내용%d",i),String.format("작성자%d",i)));
