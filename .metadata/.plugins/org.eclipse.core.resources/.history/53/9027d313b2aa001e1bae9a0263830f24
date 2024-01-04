@@ -1,0 +1,11 @@
+package ch14.list.map.properties;
+
+import java.util.Properties;
+
+public class PropertiesExam {
+	public static void main(String[] args) {
+		// 프로퍼티로 만든 텍스트를 k,v형식으로 붏러오는 기법
+		Properties p = new Properties();
+		
+	}
+}

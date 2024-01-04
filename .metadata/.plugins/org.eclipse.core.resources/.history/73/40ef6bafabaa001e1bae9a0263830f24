@@ -1,7 +1,6 @@
 package ch14.list.map;
 
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -11,7 +10,7 @@ public class HashMapExam {
 		// Map 인터페이스는 k,v의 쌍으로 구현된다.
 		// key는 중복 안됨, v는 중복 가능
 		
-		Map<String, Integer> map = new Hashtable<String, Integer>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
 		
 		map.put("김기원", 100);
 		map.put("이태훈", 99);
