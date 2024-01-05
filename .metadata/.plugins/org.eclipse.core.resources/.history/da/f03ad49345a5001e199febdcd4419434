@@ -1,7 +1,0 @@
-package ch09.interfaceexam.bird;
-
-public interface floatable {
-	public void floating();
-	public void front();
-	public void back();
-}

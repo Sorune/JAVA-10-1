@@ -1,5 +1,0 @@
-package ch09.interfaceexam.vehicle;
-
-public class Bus implements Vehicle{
-
-}

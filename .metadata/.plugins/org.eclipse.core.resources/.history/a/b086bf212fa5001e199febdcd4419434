@@ -1,5 +1,0 @@
-package ch09.interfaceexam.car;
-
-public class Car {
-	Tire[] tires = new Tire[4];
-}

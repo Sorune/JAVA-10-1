@@ -1,6 +1,0 @@
-package ch09.interfaceexam.bird;
-
-public interface Animal {
-	public abstract void eat();
-	public abstarct void sound();
-}

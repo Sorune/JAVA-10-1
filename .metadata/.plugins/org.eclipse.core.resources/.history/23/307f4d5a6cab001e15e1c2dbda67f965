@@ -1,0 +1,22 @@
+package ch15.io;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+public class ReadExam3 {
+	public static void main(String[] args) throws Exception {
+		//read(byte[8],2(off),3(len));
+		InputStream is = new FileInputStream("D:/temp/test.txt");
+		
+		int readByte;
+		byte[] readBytes = new byte[8];
+		String data = "";
+		while(true) {
+			readByte = is.read(readBytes, 2, 3);
+			data += new String(readBytes,0,readByte);
+			System.out.println(data);
+		}
+		
+	}
+}

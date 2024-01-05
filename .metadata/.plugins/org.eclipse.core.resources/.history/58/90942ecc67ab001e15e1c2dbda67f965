@@ -1,0 +1,17 @@
+package ch15.io;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.nio.file.Paths;
+
+public class ReadExam1 {
+	public static void main(String[] args) throws FileNotFoundException {
+		FileReader fr = new FileReader("D:/tmp/test.txt");
+		
+		//InputStream은 byte를 이용하여 데이터를 자바로 입력받는다.
+		//read(); 메서드는 int(32bit)타입의 byte(8bit)객체로 읽어 옴
+		InputStream is = new FileInputStream("D:/temp/test.txt");
+	}
+}

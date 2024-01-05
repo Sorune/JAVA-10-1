@@ -1,5 +1,0 @@
-package ch09.interfaceexam.bird;
-
-public interface Animal {
-
-}
